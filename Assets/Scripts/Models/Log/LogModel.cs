@@ -2,9 +2,9 @@ using System;
 using System.Text;
 using UnityEngine;
 
-namespace Services.Log
+namespace Models.Log
 {
-  public class LogService : ILogService
+  public class LogModel : ILogModel
   {
     private const string LOG = "log";
     

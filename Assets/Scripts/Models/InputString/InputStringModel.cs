@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace Services.Input
+namespace Models.InputString
 {
-  public class InputService : IInputService
+  public class InputStringModel : IInputStringModel
   {
     private const string INPUT_STRING = "input_string";
 
@@ -28,5 +28,26 @@ namespace Services.Input
 
     public void ClearInputString() =>
       ClearInput?.Invoke();
+
+    public string GetEntry() =>
+      _currentString + "=" + GetResult();
+
+    private string GetResult()
+    {
+      const string error = "ERROR";
+      
+      string[] values = _currentString.Split("+");
+
+      if (values.Length != 2)
+        return error;
+
+      if (!int.TryParse(values[0], out int value1))
+        return error;
+      
+      if (!int.TryParse(values[1], out int value2))
+        return error;
+
+      return (value1 + value2).ToString();
+    }
   }
 }

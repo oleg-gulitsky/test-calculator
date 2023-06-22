@@ -1,9 +1,9 @@
 using System;
 using System.Text;
 
-namespace Services.Log
+namespace Models.Log
 {
-  public interface ILogService
+  public interface ILogModel
   {
     StringBuilder GetLogString();
     void AddEntry(string newLog);
